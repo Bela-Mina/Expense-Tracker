@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 function ExpenseTracker() {
     const [expense, setExpense] = useState("");
     const [expenses, setExpenses] = useState([]);
@@ -8,7 +9,11 @@ function ExpenseTracker() {
         setExpenses([...expenses, expense])
         setExpense("")
     }
-    
+    function deleteExpense(index) {
+        setExpenses(
+            expenses.filter((expense, currentExpense) => currentExpense !== index)
+        )
+    }
     return (
         <div>
             <h1>Expense Tracker</h1>
@@ -24,7 +29,9 @@ function ExpenseTracker() {
                 </button>
                 
              {expenses.map((expense, index)=> (
-                <p key={index}>{expense}</p> 
+                <div key={index}>
+                    <p>{expense}<button onClick={() => deleteExpense(index)}>🗑️</button></p> 
+                </div>
              ))
               
             }
