@@ -2,10 +2,10 @@ import { useState } from "react";
 
 function ExpenseTracker() {
     const [expense, setExpense] = useState("");
-    const [expenses, setExpense] = useState([]);
+    const [expenses, setExpenses] = useState([]);
 
     function theExpense() {
-        setExpense([...expenses, expense])
+        setExpenses([...expenses, expense])
         setExpense("")
     }
     
@@ -23,15 +23,31 @@ function ExpenseTracker() {
                         Add Expense
                 </button>
                 
-             {expense.map((expense, index)=> (
-                <p key={index}>{expense}</p>
+             {expenses.map((expense, index)=> (
+                <p key={index}>{expense}</p> 
              ))
               
             }
 
-            
+        
         </div>
     );
 }
 
-export default ExpenseTracker;
+export default ExpenseTracker; 
+
+
+    //           React
+    //             │
+    //    ┌────────┼────────┐
+    //    ↓        ↓        ↓
+    //  item     item      item
+    //  Lunch    Coffee    Taxi
+    //    │        │        │
+    //  key=0    key=1     key=2
+    //    │        │        │
+    //    ↓        ↓        ↓
+    //  <p>      <p>       <p>
+    //  Lunch    Coffee    Taxi
+
+    
