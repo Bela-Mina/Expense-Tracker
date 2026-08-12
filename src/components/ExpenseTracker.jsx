@@ -1,15 +1,17 @@
 import { useState } from "react";
-
-
 function ExpenseTracker() {
     const [expense, setExpense] = useState("");
     const [expenses, setExpenses] = useState([]);
 
     function theExpense() {
+        if(expense.trim() === "") {
+            return 
+        }
         setExpenses([...expenses, expense])
         setExpense("")
     }
     function deleteExpense(index) {
+        
         setExpenses(
             expenses.filter((expense, currentExpense) => currentExpense !== index)
         )
