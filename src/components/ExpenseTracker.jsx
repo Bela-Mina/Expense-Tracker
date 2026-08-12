@@ -2,7 +2,12 @@ import { useState } from "react";
 
 function ExpenseTracker() {
     const [expense, setExpense] = useState("");
+    const [expenses, setExpense] = useState([]);
 
+    function theExpense() {
+        setExpense([...expenses, expense])
+        setExpense("")
+    }
     
     return (
         <div>
